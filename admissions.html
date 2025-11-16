@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Admissions open for Form One 2026 at St. Luke's Boys High School Kimilili. Apply online or download forms. Deadline: December 20, 2025." />
+  <title>Admissions | St. Luke's Boys High School Kimilili</title>
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --primary-maroon: #6B1A2C;
+      --secondary-maroon: #9B2D3E;
+      --light-maroon: #F8E6E8;
+      --white: #ffffff;
+      --gray: #f8f9fa;
+      --dark: #212529;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: var(--gray); color: var(--dark); line-height: 1.6; }
+    /* Navbar */
+    .navbar {
+      background: var(--primary-maroon) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(107, 26, 44, 0.95) !important;
+      backdrop-filter: blur(10px);
+    }
+    .navbar-brand {
+      font-weight: 700; font-size: 1.5rem; color: var(--white) !important;
+      display: flex; align-items: center;
+    }
+    .navbar-brand img {
+      height: 50px; margin-right: 10px; border-radius: 50%; border: 3px solid var(--white);
+    }
+    .nav-link {
+      color: var(--white) !important; font-weight: 500; margin: 0 10px; position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%;
+      background: var(--white); transition: all 0.3s ease; transform: translateX(-50%);
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 80%; }
+    .nav-link:hover, .nav-link.active { color: var(--light-maroon) !important; }
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(rgba(107,26,44,0.9), rgba(107,26,44,0.95)),
+                  url('https://images.unsplash.com/photo-1522202176988-66273c2b2d23?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: var(--white);  padding: 6rem 0 4rem; text-align: center;
+    }
+    .page-header h1 {
+      font-size: 3rem; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .page-header .breadcrumb {
+      background: transparent; justify-content: center; margin-top: 1rem;
+    }
+    .breadcrumb-item a { color: var(--light-maroon); text-decoration: none; }
+    .breadcrumb-item.active { color: var(--white); }
+    /* Section Styling */
+    .section-title {
+      position: relative; display: inline-block; font-weight: 700; color: var(--primary-maroon);
+      margin-bottom: 2rem; padding-bottom: 10px;
+    }
+    .section-title::after {
+      content: ''; position: absolute; width: 60px; height: 4px; background: var(--secondary-maroon);
+      bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px;
+    }
+    /* Hero CTA */
+    .admission-cta {
+      padding: 4rem 0; background: var(--light-maroon); text-align: center;
+    }
+    .admission-cta .badge {
+      background: var(--secondary-maroon); color: var(--white); font-size: 1rem; padding: 0.5rem 1rem;
+      border-radius: 50px; margin-bottom: 1rem;
+    }
+    .admission-cta h2 {
+      font-size: 2.5rem; font-weight: 700; color: var(--primary-maroon);
+    }
+    .countdown {
+      font-size: 1.8rem; font-weight: 600; color: var(--secondary-maroon);
+    }
+    /* Admission Process */
+    .process {
+      padding: 4rem 0; background: var(--white);
+    }
+    .step-card {
+      border: none; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease; height: 100%; background: var(--white);
+      text-align: center; padding: 2rem;
+    }
+    .step-card:hover {
+      transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .step-number {
+      width: 60px; height: 60px; background: var(--primary-maroon); color: var(--white);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.5rem; font-weight: 700;
+    }
+    .step-card i {
+      font-size: 2.5rem; color: var(--secondary-maroon); margin-bottom: 1rem;
+    }
+    /* Requirements */
+    .requirements {
+      padding: 4rem 0; background: var(--light-maroon);
+    }
+    .req-list {
+      background: var(--white); border-radius: 15px; padding: 2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .req-list li {
+      padding: 0.75rem 0; border-bottom: 1px dashed #ddd;
+    }
+    .req-list li:last-child { border-bottom: none; }
+    .req-list i {
+      color: var(--secondary-maroon); margin-right: 0.5rem;
+    }
+    /* Fee Structure */
+    .fees {
+      padding: 4rem 0; background: var(--white);
+    }
+    .fee-card {
+      border: none; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease; height: 100%;
+    }
+    .fee-card .card-header {
+      background: var(--primary-maroon); color: var(--white); font-weight: 600;
+      text-align: center; padding: 1rem;
+    }
+    .fee-card .list-group-item {
+      display: flex; justify-content: space-between; padding: 0.75rem 1.5rem;
+    }
+    /* Application Form */
+    .apply {
+      padding: 4rem 0; background: var(--light-maroon);
+    }
+    .form-card {
+      background: var(--white); border-radius: 15px; padding: 2.5rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+    }
+    .form-control:focus, .form-select:focus {
+      border-color: var(--secondary-maroon); box-shadow: 0 0 0 0.2rem rgba(155, 45, 62, 0.25);
+    }
+    .btn-apply {
+      background: var(--primary-maroon); color: var(--white); font-weight: 600;
+      padding: 12px 32px; border-radius: 50px; border: none; transition: all 0.3s ease;
+    }
+    .btn-apply:hover {
+      background: var(--secondary-maroon); transform: translateY(-3px);
+    }
+    /* Footer */
+    footer {
+      background: var(--primary-maroon); color: var(--white); padding: 3rem 0 1rem;
+    }
+    footer a { color: var(--light-maroon); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { color: var(--white); }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; background: rgba(255,255,255,0.1); color: var(--white);
+      border-radius: 50%; margin: 0 8px; transition: all 0.3s;
+    }
+    .social-links a:hover {
+      background: var(--white); color: var(--primary-maroon); transform: translateY(-3px);
+    }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 2.5rem; }
+      .admission-cta h2 { font-size: 2rem; }
+      .countdown { font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img src="images/logo.png" alt="School Logo" onerror="this.src='https://via.placeholder.com/50x50/6B1A2C/ffffff?text=SL'">
+        <span>St. Luke's Boys</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link active" href="admissions.html">Admissions</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Admissions 2026</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Admissions</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <section class="admission-cta">
+    <div class="container">
+      <span class="badge">Form One Intake 2026</span>
+      <h2>Secure Your Child's Future Today!</h2>
+      <p class="lead mb-3">Applications Now Open – Limited Slots Available</p>
+      <p class="countdown" id="countdown">Deadline: <span id="timer"></span></p>
+      <div class="mt-4">
+        <a href="#apply-form" class="btn btn-apply btn-lg me-3">Apply Online</a>
+        <a href="#" class="btn btn-outline-primary btn-lg">Download Form</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Admission Process -->
+  <section class="process">
+    <div class="container">
+      <h2 class="section-title text-center">Admission Process</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card">
+            <div class="step-number">1</div>
+            <h5>Submit Application</h5>
+            <p>Fill online form or download and submit physically.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card">
+            <div class="step-number">2</div>
+            <h5>Entrance Exam</h5>
+            <p>Sit for aptitude test in Maths, English & Science.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card">
+            <div class="step-number">3</div>
+            <h5>Interview</h5>
+            <p>Shortlisted candidates attend panel interview.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="step-card">
+            <div class="step-number">4</div>
+            <h5>Admission Letter</h5>
+            <p>Successful candidates receive offer letter.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Requirements -->
+  <section class="requirements">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          <h2 class="section-title text-center">Entry Requirements</h2>
+          <div class="req-list">
+            <ul class="list-unstyled">
+              <li>Minimum KCPE score: 380 marks</li>
+              <li>Birth certificate (copy)</li>
+              <li>Recent passport-size photos (2)</li>
+              <li>Good conduct recommendation</li>
+              <li>Medical report (if applicable)</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Fee Structure -->
+  <section class="fees">
+    <div class="container">
+      <h2 class="section-title text-center">Fee Structure (2026)</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="card fee-card h-100">
+            <div class="card-header">Termly Fees</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><span>Tuition</span> <strong>KSh 28,000</strong></li>
+              <li class="list-group-item"><span>Boarding</span> <strong>KSh 15,000</strong></li>
+              <li class="list-group-item"><span>Activity Fee</span> <strong>KSh 3,500</strong></li>
+              <li class="list-group-item"><span>Medical</span> <strong>KSh 1,500</strong></li>
+              <li class="list-group-item text-success"><span>Total per Term</span> <strong>KSh 48,000</strong></li>
+            </ul>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card fee-card h-100">
+            <div class="card-header">Annual Total</div>
+            <ul class="list-group list-group-flush">
+              <li class="list-group-item"><span>3 Terms</span> <strong>KSh 144,000</strong></li>
+              <li class="list-group-item"><span>Uniform (once)</span> <strong>KSh 8,500</strong></li>
+              <li class="list-group-item"><span>Development Levy</span> <strong>KSh 5,000</strong></li>
+              <li class="list-group-item text-success"><span>First Year Total</span> <strong>KSh 157,500</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="text-center mt-4 text-muted"><small>Fees payable via bank or M-PESA. Installments available.</small></p>
+    </div>
+  </section>
+
+  <!-- Application Form -->
+  <section class="apply" id="apply-form">
+    <div class="container">
+      <h2 class="section-title text-center">Apply Online Now</h2>
+      <div class="row justify-content-center">
+        <div class="col-lg-8">
+          <div class="form-card">
+            <form action="apply.php" method="POST">
+  <div class="row g-3">
+    <!-- Student Info -->
+    <div class="col-md-6">
+      <label class="form-label">Student Full Name <span class="text-danger">*</span></label>
+      <input type="text" name="student_name" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">KCPE Index Number <span class="text-danger">*</span></label>
+      <input type="text" name="kcpe_index" class="form-control" placeholder="e.g. 1234567890/2025" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Total KCPE Marks <span class="text-danger">*</span></label>
+      <input type="number" name="kcpe_marks" class="form-control" min="0" max="500" placeholder="e.g. 412" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">County of Residence <span class="text-danger">*</span></label>
+      <select name="county" class="form-select" required>
+        <option value="">Select County</option>
+        <option>Bungoma</option>
+        <option>Kakamega</option>
+        <option>Trans Nzoia</option>
+        <option>Busia</option>
+        <option>Vihiga</option>
+        <option>Nairobi</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <!-- Orphan Status -->
+    <div class="col-12">
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="is_orphan" id="orphan">
+        <label class="form-check-label" for="orphan">
+          Is the student an orphan?
+        </label>
+      </div>
+    </div>
+
+    <!-- Guardian Info -->
+    <div class="col-md-6">
+      <label class="form-label">Parent/Guardian Name <span class="text-danger">*</span></label>
+      <input type="text" name="guardian_name" class="form-control" required>
+    </div>
+    <div class="col-md-6">
+      <label class="form-label">Guardian Phone Number <span class="text-danger">*</span></label>
+      <input type="tel" name="guardian_phone" class="form-control" placeholder="e.g. 07XX XXX XXX" required>
+    </div>
+    <div class="col-12">
+      <label class="form-label">Email Address</label>
+      <input type="email" name="email" class="form-control">
+    </div>
+
+    <!-- Submit -->
+    <div class="col-12 text-center mt-4">
+      <button type="submit" class="btn btn-apply btn-lg">Submit Application</button>
+    </div>
+  </div>
+</form>	
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5>St. Luke's Boys High School</h5>
+          <p>P.O. Box 124 - 50204<br>Kimilili, Kenya<br>+254 700 123 456<br>info@stlukeskimilili.ac.ke</p>
+          <div class="social-links mt-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="#">Student Portal</a></li>
+            <li><a href="#">Alumni</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6>Resources</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Fee Structure</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h6>Subscribe</h6>
+          <form>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email" required>
+              <button class="btn btn-light" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="text-center">
+        <p class="mb-0">© 2025 St. Luke's Boys High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Active link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+
+    // Countdown Timer (Deadline: Dec 20, 2025)
+    function updateCountdown() {
+      const deadline = new Date('2025-12-20T23:59:59');
+      const now = new Date();
+      const diff = deadline - now;
+      if (diff <= 0) {
+        document.getElementById('timer').textContent = 'CLOSED';
+        return;
+      }
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById('timer').textContent = `${days}d ${hours}h ${minutes}m`;
+    }
+    setInterval(updateCountdown, 60000);
+    updateCountdown();
+  </script>
+</body>
+</html>

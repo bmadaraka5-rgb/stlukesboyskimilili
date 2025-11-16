@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Explore academic programs, KCSE performance, curriculum, and teaching excellence at St. Luke's Boys High School Kimilili." />
+  <title>Academics | St. Luke's Boys High School Kimilili</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"/>
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet"/>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+
+  <style>
+    :root {
+      --primary-maroon: #6B1A2C;
+      --secondary-maroon: #9B2D3E;
+      --light-maroon: #F8E6E8;
+      --white: #ffffff;
+      --gray: #f8f9fa;
+      --dark: #212529;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: var(--gray); color: var(--dark); line-height: 1.6; }
+
+    /* Navbar */
+    .navbar {
+      background: var(--primary-maroon) !important;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      padding: 1rem 0;
+      transition: all 0.3s ease;
+    }
+    .navbar.scrolled {
+      padding: 0.5rem 0;
+      background: rgba(107, 26, 44, 0.95) !important;
+      backdrop-filter: blur(10px);
+    }
+    .navbar-brand {
+      font-weight: 700; font-size: 1.5rem; color: var(--white) !important;
+      display: flex; align-items: center;
+    }
+    .navbar-brand img {
+      height: 50px; margin-right: 10px; border-radius: 50%; border: 3px solid var(--white);
+    }
+    .nav-link {
+      color: var(--white) !important; font-weight: 500; margin: 0 10px; position: relative;
+      transition: all 0.3s ease;
+    }
+    .nav-link::after {
+      content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%;
+      background: var(--white); transition: all 0.3s ease; transform: translateX(-50%);
+    }
+    .nav-link:hover::after, .nav-link.active::after { width: 80%; }
+    .nav-link:hover, .nav-link.active { color: var(--light-maroon) !important; }
+
+    /* Page Header */
+    .page-header {
+      background: linear-gradient(rgba(107,26,44,0.9), rgba(107,26,44,0.95)),
+                  url('https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
+      color: var(--white); padding: 6rem 0 4rem; text-align: center;
+    }
+    .page-header h1 {
+      font-size: 3rem; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+    }
+    .page-header .breadcrumb {
+      background: transparent; justify-content: center; margin-top: 1rem;
+    }
+    .breadcrumb-item a { color: var(--light-maroon); text-decoration: none; }
+    .breadcrumb-item.active { color: var(--white); }
+
+    /* Section Styling */
+    .section-title {
+      position: relative; display: inline-block; font-weight: 700; color: var(--primary-maroon);
+      margin-bottom: 2rem; padding-bottom: 10px;
+    }
+    .section-title::after {
+      content: ''; position: absolute; width: 60px; height: 4px; background: var(--secondary-maroon);
+      bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px;
+    }
+
+    /* Curriculum */
+    .curriculum {
+      padding: 4rem 0; background: var(--white);
+    }
+    .subject-card {
+      border: none; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      transition: all 0.3s ease; height: 100%; background: var(--white);
+    }
+    .subject-card:hover {
+      transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .subject-icon {
+      width: 70px; height: 70px; background: var(--light-maroon); color: var(--primary-maroon);
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      margin: 0 auto 1rem; font-size: 1.8rem; font-weight: 700;
+    }
+    .subject-card .card-body { padding: 2rem; text-align: center; }
+
+    /* Performance */
+    .performance {
+      padding: 4rem 0; background: var(--light-maroon);
+    }
+    .perf-chart {
+      background: var(--white); border-radius: 15px; padding: 2rem; box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .grade-circle {
+      width: 120px; height: 120px; border-radius: 50%; background: conic-gradient(var(--secondary-maroon) 0% 87%, var(--light-maroon) 87% 100%);
+      display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem;
+      font-size: 1.8rem; font-weight: 700; color: var(--primary-maroon);
+    }
+    .grade-circle span { background: var(--white); width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+
+    /* Teaching Staff */
+    .staff {
+      padding: 4rem 0; background: var(--white);
+    }
+    .teacher-card {
+      text-align: center; transition: all 0.3s ease;
+    }
+    .teacher-card:hover { transform: translateY(-8px); }
+    .teacher-img {
+      width: 140px; height: 140px; object-fit: cover; border-radius: 50%;
+      border: 5px solid var(--light-maroon); margin: 0 auto 1rem;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.12);
+    }
+    .teacher-name { font-weight: 600; color: var(--primary-maroon); }
+    .teacher-subject { font-size: 0.9rem; color: var(--secondary-maroon); font-style: italic; }
+
+    /* Facilities */
+    .facilities {
+      padding: 4rem 0; background: var(--light-maroon);
+    }
+    .facility-item {
+      text-align: center; padding: 2rem; background: var(--white); border-radius: 15px;
+      box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; height: 100%;
+    }
+    .facility-item:hover {
+      transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+    }
+    .facility-item i {
+      font-size: 3rem; color: var(--secondary-maroon); margin-bottom: 1rem;
+    }
+
+    /* Results Table */
+    .results-table {
+      padding: 4rem 0; background: var(--white);
+    }
+    .table thead {
+      background: var(--primary-maroon); color: var(--white);
+    }
+    .table tbody tr:hover {
+      background: var(--light-maroon);
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary-maroon); color: var(--white); padding: 3rem 0 1rem;
+    }
+    footer a { color: var(--light-maroon); text-decoration: none; transition: color 0.3s; }
+    footer a:hover { color: var(--white); }
+    .social-links a {
+      display: inline-flex; align-items: center; justify-content: center;
+      width: 40px; height: 40px; background: rgba(255,255,255,0.1); color: var(--white);
+      border-radius: 50%; margin: 0 8px; transition: all 0.3s;
+    }
+    .social-links a:hover {
+      background: var(--white); color: var(--primary-maroon); transform: translateY(-3px);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .page-header h1 { font-size: 2.5rem; }
+      .grade-circle { width: 100px; height: 100px; }
+      .grade-circle span { width: 75px; height: 75px; font-size: 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <img style="width:2000px height:20px" src="images/logo.png" alt="School Logo">
+        <span>St. Luke's Boys</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link active" href="academics.html">Academics</a></li>
+          <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+          <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <section class="page-header">
+    <div class="container">
+      <h1>Academics</h1>
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Academics</li>
+        </ol>
+      </nav>
+    </div>
+  </section>
+
+  <!-- Curriculum Overview -->
+  <section class="curriculum">
+    <div class="container">
+      <h2 class="section-title text-center">8-4-4 Curriculum & Subjects</h2>
+      <p class="lead text-center mb-5">We offer a comprehensive national curriculum with a focus on STEM, humanities, and practical skills.</p>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="card subject-card h-100">
+            <div class="card-body">
+              <div class="subject-icon">SCI</div>
+              <h5>Science Stream</h5>
+              <p>Physics, Chemistry, Biology, Mathematics</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card subject-card h-100">
+            <div class="card-body">
+              <div class="subject-icon">HUM</div>
+              <h5>Humanities</h5>
+              <p>History, Geography, CRE, Business Studies</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card subject-card h-100">
+            <div class="card-body">
+              <div class="subject-icon">LAN</div>
+              <h5>Languages</h5>
+              <p>English, Kiswahili, French</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="card subject-card h-100">
+            <div class="card-body">
+              <div class="subject-icon">TECH</div>
+              <h5>Technical</h5>
+              <p>Computer Studies, Agriculture, Art & Design</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KCSE Performance -->
+  <section class="performance">
+    <div class="container">
+      <h2 class="section-title text-center">KCSE Performance (2020–2024)</h2>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-4">
+          <div class="perf-chart">
+            <div class="grade-circle"><span>A-</span></div>
+            <h5>2024 Mean Score</h5>
+            <p class="lead">9.2</p>
+            <small>87% University Entry</small>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="perf-chart">
+            <div class="grade-circle" style="background: conic-gradient(var(--secondary-maroon) 0% 82%, var(--light-maroon) 82% 100%);">
+              <span>B+</span>
+            </div>
+            <h5>2023 Mean</h5>
+            <p class="lead">8.8</p>
+            <small>Top 15 Nationally</small>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="perf-chart">
+            <div class="grade-circle" style="background: conic-gradient(var(--secondary-maroon) 0% 78%, var(--light-maroon) 78% 100%);">
+              <span>B</span>
+            </div>
+            <h5>5-Year Average</h5>
+            <p class="lead">8.5</p>
+            <small>Consistent Excellence</small>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Teaching Staff -->
+  <section class="staff">
+    <div class="container">
+      <h2 class="
+
+section-title text-center">Our Dedicated Teachers</h2>
+      <p class="text-center mb-5">70+ qualified teachers with an average of 12 years of experience.</p>
+      <div class="row g-4 justify-content-center">
+        <div class="col-md-6 col-lg-3">
+          <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1581092160606-853f4e2e6e55?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teacher" class="teacher-img">
+            <h5 class="teacher-name">Dr. Jane Wekesa</h5>
+            <p class="teacher-subject">Head of Science</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1581093450021-8f2b981a4a3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teacher" class="teacher-img">
+            <h5 class="teacher-name">Mr. Isaac Barasa</h5>
+            <p class="teacher-subject">Mathematics & ICT</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1581092581461-7d6d9c9b7b2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teacher" class="teacher-img">
+            <h5 class="teacher-name">Ms. Faith Nasimiyu</h5>
+            <p class="teacher-subject">English & Literature</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="teacher-card">
+            <img src="https://images.unsplash.com/photo-1581092921461-7d6d9c9b7b2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Teacher" class="teacher-img">
+            <h5 class="teacher-name">Mr. Paul Wafula</h5>
+            <p class="teacher-subject">History & CRE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Academic Facilities -->
+  <section class="facilities">
+    <div class="container">
+      <h2 class="section-title text-center">State-of-the-Art Facilities</h2>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-3">
+          <div class="facility-item">
+            <i class="bi bi-flask"></i>
+            <h5>Science Labs</h5>
+            <p>4 fully equipped Physics, Chemistry, and Biology labs</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="facility-item">
+            <i class="bi bi-laptop"></i>
+            <h5>ICT Center</h5>
+            <p>120 computers with high-speed internet</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="facility-item">
+            <i class="bi bi-book-half"></i>
+            <h5>Library</h5>
+            <p>Over 25,000 books and digital resources</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-3">
+          <div class="facility-item">
+            <i class="bi bi-easel"></i>
+            <h5>Art & Design Studio</h5>
+            <p>Professional tools for creative expression</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KCSE Results Table -->
+  <section class="results-table">
+    <div class="container">
+      <h2 class="section-title text-center">KCSE Grade Distribution (2024)</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+          <thead>
+            <tr>
+              <th>Grade</th>
+              <th>A</th>
+              <th>A-</th>
+              <th>B+</th>
+              <th>B</th>
+              <th>B-</th>
+              <th>C+</th>
+              <th>C</th>
+              <th>Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Candidates</td>
+              <td>48</td>
+              <td>92</td>
+              <td>85</td>
+              <td>62</td>
+              <td>35</td>
+              <td>18</td>
+              <td>10</td>
+              <td>350</td>
+            </tr>
+            <tr>
+              <td>Percentage</td>
+              <td>13.7%</td>
+              <td>26.3%</td>
+              <td>24.3%</td>
+              <td>17.7%</td>
+              <td>10.0%</td>
+              <td>5.1%</td>
+              <td>2.9%</td>
+              <td>100%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 mb-4">
+          <h5>St. Luke's Boys High School</h5>
+          <p>P.O. Box 124 - 50204<br>Kimilili, Kenya<br>+254 700 123 456<br>info@stlukeskimilili.ac.ke</p>
+          <div class="social-links mt-3">
+            <a href="#"><i class="bi bi-facebook"></i></a>
+            <a href="#"><i class="bi bi-twitter"></i></a>
+            <a href="#"><i class="bi bi-instagram"></i></a>
+            <a href="#"><i class="bi bi-youtube"></i></a>
+          </div>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6>Quick Links</h6>
+          <ul class="list-unstyled">
+            <li><a href="admissions.html">Admissions</a></li>
+            <li><a href="academics.html">Academics</a></li>
+            <li><a href="#">Student Portal</a></li>
+            <li><a href="#">Alumni</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-6 mb-4">
+          <h6>Resources</h6>
+          <ul class="list-unstyled">
+            <li><a href="#">Calendar</a></li>
+            <li><a href="#">Fee Structure</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">Newsletter</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 mb-4">
+          <h6>Subscribe</h6>
+          <form>
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email" required>
+              <button class="btn btn-light" type="submit">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+      <hr class="bg-light">
+      <div class="text-center">
+        <p class="mb-0">© 2025 St. Luke's Boys High School. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    // Active link
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+        link.classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="St. Luke's Boys High School Kimilili – Excellence in Education. National school with mean score 9.2. Admissions open for Form One 2026." />
+    <title>St. Luke's Boys High School Kimilili | Excellence in Education</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- Google Fonts: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-maroon: #6B1A2C;
+            --secondary-maroon: #9B2D3E;
+            --light-maroon: #F8E6E8;
+            --white: #ffffff;
+            --gray: #f8f9fa;
+            --dark: #212529;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--gray);
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        /* Navigation */
+        .navbar {
+            background-color: var(--primary-maroon) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+            transition: all 0.3s ease;
+        }
+        .navbar.scrolled {
+            padding: 0.5rem 0;
+            background-color: rgba(107, 26, 44, 0.95) !important;
+            backdrop-filter: blur(10px);
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--white) !important;
+            display: flex;
+            align-items: center;
+        }
+        .navbar-brand img {
+            height: 50px;
+            margin-right: 10px;
+            border-radius: 50%;
+            border: 3px solid var(--white);
+        }
+        .nav-link {
+            color: var(--white) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 50%;
+            background-color: var(--white);
+            transition: all 0.3s ease;
+            transform: translateX(-50%);
+        }
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            width: 80%;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--light-maroon) !important;
+        }
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            background: linear-gradient(rgba(107, 26, 44, 0.85), rgba(107, 26, 44, 0.9)),
+                        url('https://images.unsplash.com/photo-1523050858586-52b4160e7e3f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: var(--white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.4);
+        }
+        .hero .motto {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+        .btn-cta {
+            background-color: var(--white);
+            color: var(--primary-maroon);
+            font-weight: 600;
+            padding: 12px 32px;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+        .btn-cta:hover {
+            background-color: var(--light-maroon);
+            color: var(--primary-maroon);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+        /* Marquee */
+        .marquee-section {
+            background-color: var(--secondary-maroon);
+            color: var(--white);
+            padding: 12px 0;
+            overflow: hidden;
+            white-space: nowrap;
+            font-weight: 500;
+        }
+        .marquee-content {
+            display: inline-block;
+            animation: marquee 15s linear infinite;
+        }
+        @keyframes marquee {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+        .marquee-content span {
+            margin-right: 60px;
+            display: inline-block;
+        }
+        /* Carousel */
+        .carousel-section {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+        .carousel-caption {
+            background: rgba(107, 26, 44, 0.85);
+            border-radius: 10px;
+            padding: 15px;
+            bottom: 20px;
+            left: 5%;
+            right: 5%;
+        }
+        .carousel-caption h5 {
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .carousel-item img {
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+        }
+        /* Section Styling */
+        .section-title {
+            position: relative;
+            display: inline-block;
+            font-weight: 700;
+            color: var(--primary-maroon);
+            margin-bottom: 2rem;
+            padding-bottom: 10px;
+        }
+        .section-title::after {
+            content: '';
+            position: absolute;
+            width: 60px;
+            height: 4px;
+            background-color: var(--secondary-maroon);
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+        /* Mission & Vision */
+        .mission-vision {
+            padding: 4rem 0;
+            background-color: var(--light-maroon);
+        }
+        .card-mv {
+            border: none;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            height: 100%;
+            background-color: var(--white);
+        }
+        .card-mv:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+        }
+        .card-mv .card-body {
+            padding: 2rem;
+        }
+        .card-mv i {
+            font-size: 2.5rem;
+            color: var(--secondary-maroon);
+            margin-bottom: 1rem;
+        }
+        /* News Section */
+        .news-card {
+            border: none;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            height: 100%;
+            background-color: var(--white);
+        }
+        .news-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+        .news-card img {
+            height: 200px;
+            object-fit: cover;
+        }
+        .news-card .card-body {
+            padding: 1.5rem;
+        }
+        .news-date {
+            font-size: 0.85rem;
+            color: var(--secondary-maroon);
+            font-weight: 500;
+        }
+        /* Key Highlights */
+        .highlights {
+            padding: 4rem 0;
+            background-color: var(--white);
+        }
+        .highlight-item {
+            text-align: center;
+            padding: 2rem;
+            border-radius: 15px;
+            background-color: var(--light-maroon);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        .highlight-item:hover {
+            background-color: var(--secondary-maroon);
+            color: var(--white);
+            transform: translateY(-8px);
+        }
+        .highlight-item i {
+            font-size: 3rem;
+            color: var(--primary-maroon);
+            margin-bottom: 1rem;
+            transition: color 0.3s ease;
+        }
+        .highlight-item:hover i {
+            color: var(--white);
+        }
+        .highlight-item h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        /* Footer */
+        footer {
+            background-color: var(--primary-maroon);
+            color: var(--white);
+            padding: 3rem 0 1rem;
+        }
+        footer a {
+            color: var(--light-maroon);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        footer a:hover {
+            color: var(--white);
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255,255,255,0.1);
+            color: var(--white);
+            border-radius: 50%;
+            margin: 0 8px;
+            transition: all 0.3s ease;
+        }
+        .social-links a:hover {
+            background-color: var(--white);
+            color: var(--primary-maroon);
+            transform: translateY(-3px);
+        }
+        /* Modal Popup */
+        .modal-content {
+            border-radius: 15px;
+            border: none;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        .modal-header {
+            background-color: var(--secondary-maroon);
+            color: var(--white);
+            border-bottom: none;
+        }
+        .modal-header .btn-close {
+            filter: invert(1);
+        }
+        .modal-body {
+            padding: 2rem;
+        }
+        .modal-body img {
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .motto { font-size: 1.2rem; }
+            .carousel-item img { height: 300px; }
+            .highlight-item h3 { font-size: 2rem; }
+        }
+        @media (max-width: 576px) {
+            .hero h1 { font-size: 2rem; }
+            .navbar-brand span { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                
+                <span>St. Luke's Boys' High School-Kimilili</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="academics.html">Academics</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.php">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>St. Luke's Boys High School Kimilili</h1>
+            	<img style="width:2000px height:20px" src="images/logo.png" alt="School Logo">
+				<p class="motto">"DISCIPLINE HARDWORK SUCCESSS"</p>
+            <a href="admissions.html" class="btn btn-cta">Apply Now for 2026</a>
+		
+        </div>
+    </section>
+
+    <!-- Marquee Announcements -->
+    <div class="marquee-section">
+        <div class="marquee-content">
+            <span>Form One Aplications' 2026 Ongoing – Deadline: Dec 20, 2025</span>
+            <span>Congratulations! KCSE Class of2024 </span>
+            <span>Parents' Meeting to be communicated soon</span>
+            <span></span>
+        </div>
+    </div>
+
+    <!-- Image Carousel -->
+    <section class="carousel-section">
+        <div class="container">
+            <h2 class="section-title text-center">School Life & Achievements</h2>
+            <div id="schoolCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="0" class="active"></button>
+                    <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="1"></button>
+                    <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="2"></button>
+                    <button type="button" data-bs-target="#schoolCarousel" data-bs-slide-to="3"></button>
+                </div>
+                <div class="carousel-inner rounded-3 shadow-lg">
+                    <div class="carousel-item active">
+                        <img src="images/Presentation1.png" alt="mass">
+                        <div class="carousel-caption">
+                            <h5>AFTER ATTENDING MASS</h5>
+                            <p>Chief poses for a snap after the mass</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="robo.jpg" alt="Academics">
+                        <div class="carousel-caption">
+                            <h5>National Champions – ROBOTICS 2024</h5>
+                            <p>Defending champions 2024</p>
+                        </div>
+                    </div>
+					<div class="carousel-item">
+                        <img src="images/IMG_0004.JPG" alt="prayerday">
+                        <div class="carousel-caption">
+                            <h5>FORM 4M PRAYERDAY 2025</h5>
+                            <p>Posing with the Chief and their classteacher </p>
+                        </div>
+                    <div class="carousel-item">
+                        <img src="images/IMG_0004 (2).JPG" alt="SPORTS">
+                        <div class="carousel-caption">
+                            <h5>THE EAST AFRICA HANDBALL CHAMPIONS 2025</h5>
+                            <p>Celebrating the East Africa Handball championship </p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="images/IMG_0158.JPG" alt="ICT Lab">
+                        <div class="carousel-caption">
+                            <h5>Modern ICT Integration</h5>
+                            <p>Robotics and Coding classes </p>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#schoolCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#schoolCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="card card-mv h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-eye-fill"></i>
+                            <h4 class="card-title">Our Vision</h4>
+                            <p class="card-text">To be a leading center of academic excellence, character formation, and innovation, producing responsible and transformative leaders for society.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="card card-mv h-100">
+                        <div class="card-body text-center">
+                            <i class="bi bi-compass"></i>
+                            <h4 class="card-title">Our Mission</h4>
+                            <p class="card-text">To provide holistic, quality education in a conducive environment that nurtures intellectual growth, moral values, and life skills through dedicated staff and modern facilities.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- School News -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="section-title text-center">Latest News</h2>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card news-card h-100">
+                        <img src="images/IMG_3017.JPG" alt="KCSE Results">
+                        <div class="card-body d-flex flex-column">
+                            <p class="news-date">November 10, 2025</p>
+                            <h5 class="card-title">Outstanding KCSE 2025 Results</h5>
+                            <p class="card-text flex-grow-1">St. Luke's records a mean score of 6 with * of candidates qualifying for university.</p>
+                            <a href="academics.html" class="btn btn-outline-primary mt-auto">Read More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card news-card h-100">
+                        <img src="images/robo.jpg" alt="Science Fair">
+                        <div class="card-body d-flex flex-column">
+                            <p class="news-date">October 28, 2025</p>
+                            <h5 class="card-title">Regional Science Fair Winners</h5>
+                            <p class="card-text flex-grow-1">Our students clinch 1st and 2nd positions in Robotics and Environmental Science categories.</p>
+                            <a href="gallery.php" class="btn btn-outline-primary mt-auto">View Gallery</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <div class="card news-card h-100">
+                        <img src="images/dorm.jpg" alt="New Dorm">
+                        <div class="card-body d-flex flex-column">
+                            <p class="news-date">October 15, 2025</p>
+                            <h5 class="card-title">New Ultra-Modern Dormitory</h5>
+                            <p class="card-text flex-grow-1">Construction of 300-capacity dormitory completed ahead of schedule.</p>
+                            <a href="gallery.php" class="btn btn-outline-primary mt-auto">See Photos</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Highlights -->
+    <section class="highlights">
+        <div class="container">
+            <h2 class="section-title text-center">Key Highlights</h2>
+            <div class="row g-4 text-center">
+                <div class="col-md-3 col-6">
+                    <div class="highlight-item">
+                        <i class="bi bi-mortarboard-fill"></i>
+                        <h3>45+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="highlight-item">
+                        <i class="bi bi-people-fill"></i>
+                        <h3>2000</h3>
+                        <p>Students Enrolled</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="highlight-item">
+                        <i class="bi bi-trophy-fill"></i>
+                        <h3>92%</h3>
+                        <p>University Placement</p>
+                    </div>
+                </div>
+                <div class="col-md-3 col-6">
+                    <div class="highlight-item">
+                        <i class="bi bi-award-fill"></i>
+                        <h3>150+</h3>
+                        <p>National Awards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5>St. Luke's Boys High School</h5>
+                    <p>P.O. Box 124 - 50204<br>Kimilili, Kenya<br>+254 700 123 456<br>info@stlukeskimilili.ac.ke</p>
+                    <div class="social-links mt-3">
+                        <via href="#"><i class="bi bi-facebook"></i></via>
+                        <via href="#"><i class="bi bi-twitter"></i></via>
+                        <via href="#"><i class="bi bi-instagram"></i></via>
+                        <via href="#"><i class="bi bi-youtube"></i></via>
+                    </div>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Quick Links</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="admissions.html">Admissions</a></li>
+                        <li><a href="academics.html">Academics</a></li>
+                        <li><a href="#">Student Portal</a></li>
+                        <li><a href="#">Alumni</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-2 col-md-6 mb-4">
+                    <h6>Resources</h6>
+                    <ul class="list-unstyled">
+                        <li><a href="#">Calendar</a></li>
+                        <li><a href="#">Fee Structure</a></li>
+                        <li><a href="#">Downloads</a></li>
+                        <li><a href="#">Newsletter</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h6>Subscribe to Newsletter</h6>
+                    <form>
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your email" required>
+                            <button class="btn btn-light" type="submit">Subscribe</button>
+                        </div>
+                    </form>
+                    <small class="text-muted mt-2 d-block">Get updates on admissions, events, and achievements.</small>
+                </div>
+            </div>
+            <hr class="bg-light">
+            <div class="text-center">
+                <p class="mb-0">© 2025 St. Luke's Boys High School Kimilili. All rights reserved. | Powered by St. Lukes Boys High -School Kimilili ICT Team</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Admission Popup Modal -->
+    <div class="modal fade" id="admissionModal" tabindex="-1" aria-labelledby="admissionModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="admissionModalLabel">Form One Admission 2026</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body text-center">
+                    <img src="images/logo.png" alt="Admission" class="img-fluid mb-3">
+                    <h4>Secure Your Child's Future Today!</h4>
+                    <p class="lead">Applications are now open for January 2026 intake.</p>
+                    <ul class="list-unstyled text-start mx-auto" style="max-width: 500px;">
+                        <li>Proven academic excellence (Mean score 9.2)</li>
+                        <li>Modern facilities & qualified teachers</li>
+                        <li>Holistic development: Academics, Sports, Leadership</li>
+                        <li>Limited slots available</li>
+                    </ul>
+                    <div class="mt-4">
+                        <a href="admissions.html" class="btn btn-primary btn-lg me-2">Apply Online</a>
+                        <a href="images/LETTER.pdf" class="btn btn-outline-primary btn-lg">Download Form</a>
+                    </div>
+                    <small class="text-muted d-block mt-3">Application Deadline: <strong>December 20, 2025</strong></small>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Navbar scroll effect
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            navbar.classList.toggle('scrolled', window.scrollY > 50);
+        });
+
+        // Active nav link on click
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+
+        // Auto-show modal after 3 seconds
+        setTimeout(() => {
+            const modal = new bootstrap.Modal(document.getElementById('admissionModal'));
+            modal.show();
+        }, 3000);
+
+        // Carousel
+        new bootstrap.Carousel('#schoolCarousel', { interval: 5000 });
+    </script>
+</body>
+</html>
