@@ -33,26 +33,33 @@
       padding: 1rem 0;
       transition: all 0.3s ease;
     }
+
     .navbar.scrolled {
       padding: 0.5rem 0;
       background: rgba(107, 26, 44, 0.95) !important;
       backdrop-filter: blur(10px);
     }
+
     .navbar-brand {
       font-weight: 700; font-size: 1.5rem; color: var(--white) !important;
       display: flex; align-items: center;
     }
+
     .navbar-brand img {
-      height: 50px; margin-right: 10px; border-radius: 50%; border: 3px solid var(--white);
+      height: 50px; width: auto; margin-right: 10px;
+      border-radius: 50%; border: 3px solid var(--white);
     }
+
     .nav-link {
       color: var(--white) !important; font-weight: 500; margin: 0 10px; position: relative;
       transition: all 0.3s ease;
     }
+
     .nav-link::after {
       content: ''; position: absolute; width: 0; height: 2px; bottom: 0; left: 50%;
       background: var(--white); transition: all 0.3s ease; transform: translateX(-50%);
     }
+
     .nav-link:hover::after, .nav-link.active::after { width: 80%; }
     .nav-link:hover, .nav-link.active { color: var(--light-maroon) !important; }
 
@@ -62,20 +69,17 @@
                   url('https://images.unsplash.com/photo-1581092921461-7d6d9c9b7b2f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') center/cover no-repeat;
       color: var(--white); padding: 6rem 0 4rem; text-align: center;
     }
+
     .page-header h1 {
       font-size: 3rem; font-weight: 700; text-shadow: 0 2px 8px rgba(0,0,0,0.4);
     }
-    .page-header .breadcrumb {
-      background: transparent; justify-content: center; margin-top: 1rem;
-    }
-    .breadcrumb-item a { color: var(--light-maroon); text-decoration: none; }
-    .breadcrumb-item.active { color: var(--white); }
 
-    /* Section Styling */
+    /* Section Title */
     .section-title {
       position: relative; display: inline-block; font-weight: 700; color: var(--primary-maroon);
       margin-bottom: 2rem; padding-bottom: 10px;
     }
+
     .section-title::after {
       content: ''; position: absolute; width: 60px; height: 4px; background: var(--secondary-maroon);
       bottom: 0; left: 50%; transform: translateX(-50%); border-radius: 2px;
@@ -99,10 +103,11 @@
       position: relative; margin-bottom: 2rem; padding-left: 2.5rem;
     }
     .timeline-item::before {
-      content: ''; position: absolute; left: 0; top: 0.5rem; width: 16px; height: 16px;
+      content: ''; position: absolute; left: -0.4rem; top: 0.5rem; width: 16px; height: 16px;
       background: var(--primary-maroon); border: 4px solid var(--white);
       border-radius: 50%; box-shadow: 0 0 0 4px var(--secondary-maroon);
     }
+
     .timeline-year {
       font-weight: 700; color: var(--primary-maroon); font-size: 1.1rem;
     }
@@ -112,9 +117,7 @@
       box-shadow: 0 8px 25px rgba(0,0,0,0.1); transition: all 0.3s ease; height: 100%;
       text-align: center;
     }
-    .value-card:hover {
-      transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.15);
-    }
+
     .value-card i {
       font-size: 2.8rem; color: var(--secondary-maroon); margin-bottom: 1rem;
     }
@@ -124,7 +127,7 @@
       padding: 4rem 0; background: var(--white);
     }
     .leader-card {
-      text-align: center; transition: all 0.3s ease;
+      text-align: center; transition: all 0.3s ease; padding-bottom: 1rem;
     }
     .leader-card:hover {
       transform: translateY(-8px);
@@ -145,38 +148,33 @@
     .stats {
       padding: 3rem 0; background: var(--primary-maroon); color: var(--white);
     }
-    .stat-item {
-      text-align: center;
-    }
+    .stat-item { text-align: center; }
     .stat-number {
-      font-size: 3rem; font  font-weight: 700; display: block;
+      font-size: 3rem; font-weight: 700; display: block;
     }
     .stat-label {
-      font-size: 1.1rem; font-weight: 500; text-transform: uppercase; letter-spacing: 1px;
+      font-size: 1.1rem; font-weight: 500; text-transform: uppercase;
+      letter-spacing: 1px;
     }
 
     /* Footer */
     footer {
-      background: var(--primary-maroon); color: var(--white); padding: 3c 3rem 0 1rem;
+      background: var(--primary-maroon); color: var(--white);
+      padding: 3rem 1rem 0 1rem;
     }
-    footer a { color: var(--light-maroon); text-decoration: none; transition: color 0.3s; }
+    footer a { color: var(--light-maroon); text-decoration: none; }
     footer a:hover { color: var(--white); }
+
     .social-links a {
       display: inline-flex; align-items: center; justify-content: center;
       width: 40px; height: 40px; background: rgba(255,255,255,0.1); color: var(--white);
       border-radius: 50%; margin: 0 8px; transition: all 0.3s;
     }
+
     .social-links a:hover {
       background: var(--white); color: var(--primary-maroon); transform: translateY(-3px);
     }
 
-    /* Responsive */
-    @media (max-width: 768px) {
-      .page-header h1 { font-size: 2.5rem; }
-      .timeline::before { left: 0.5rem; }
-      .timeline-item { padding-left: 2rem; }
-      .timeline-item::before { left: -0.5rem; }
-    }
   </style>
 </head>
 <body>
@@ -185,7 +183,7 @@
   <nav class="navbar navbar-expand-lg fixed-top">
     <div class="container">
       <a class="navbar-brand" href="index.html">
-        <img style="width:2000px height:20px" src="images/logo.png" alt="School Logo">
+        <img src="images/logo.png" alt="School Logo">
         <span>St. Luke's Boys</span>
       </a>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -209,7 +207,7 @@
     <div class="container">
       <h1>About St. Luke's Boys High School</h1>
       <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
+        <ol class="breadcrumb justify-content-center mt-2">
           <li class="breadcrumb-item"><a href="index.html">Home</a></li>
           <li class="breadcrumb-item active" aria-current="page">About Us</li>
         </ol>
@@ -226,6 +224,7 @@
           <p class="lead text-center mb-5">
             Founded in 1979, St. Luke's Boys High School has grown from a small community initiative into one of Kenya's leading boys' boarding schools, consistently producing top national performers.
           </p>
+
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-year">1979</div>
@@ -239,20 +238,21 @@
             </div>
             <div class="timeline-item">
               <div class="timeline-year">1998</div>
-              <h5>EXTRA COUNTY School Status</h5>
-              <p>Awarded extra county School status by the Ministry of Education.</p>
+              <h5>Extra County School Status</h5>
+              <p>Upgraded to Extra County status by the Ministry of Education.</p>
             </div>
             <div class="timeline-item">
               <div class="timeline-year">2015</div>
               <h5>ICT Integration</h5>
-              <p>Launched 1:1 device program and digital learning platform.</p>
+              <p>Launched 1:1 digital device program and introduced e-learning platforms.</p>
             </div>
             <div class="timeline-item">
               <div class="timeline-year">2024</div>
               <h5>KCSE Excellence</h5>
-              <p>Achieved mean score of 9.2 (A-), ranking top 10 nationally.</p>
+              <p>Achieved a mean score of 9.2 (A-), ranking top 10 nationally.</p>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -263,6 +263,7 @@
     <div class="container">
       <h2 class="section-title text-center">Our Core Values</h2>
       <div class="row g-4">
+
         <div class="col-md-4">
           <div class="value-card">
             <i class="bi bi-book-fill"></i>
@@ -270,6 +271,7 @@
             <p>Pursuing the highest standards in teaching and learning.</p>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="value-card">
             <i class="bi bi-shield-check-fill"></i>
@@ -277,6 +279,7 @@
             <p>Upholding honesty, respect, and moral uprightness.</p>
           </div>
         </div>
+
         <div class="col-md-4">
           <div class="value-card">
             <i class="bi bi-people-fill"></i>
@@ -284,6 +287,7 @@
             <p>Fostering brotherhood, service, and social responsibility.</p>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -293,75 +297,68 @@
     <div class="container">
       <h2 class="section-title text-center">School Leadership</h2>
       <div class="row g-4 justify-content-center">
+
         <div class="col-md-4 col-lg-3">
           <div class="leader-card">
-	<table>
-	<tr><td>		  
             <img src="images/IMG_4192.JPG" alt="Principal" class="leader-img">
-            <h5 class="leader-name">Mr.SIRO I. BICHAGE</h5>
-            <p class="leader-title">CHIEF Principal </p>
+            <h5 class="leader-name">Mr. SIRO I. BICHAGE</h5>
+            <p class="leader-title">Chief Principal</p>
           </div>
         </div>
-		</td>
-		<td>
-		<div class="col-md-4 col-lg-3">
-          <div class="leader-card">
-            <img src="images/IMG_0881.jpg" alt="Dean" class="leader-img">
-            <h5 class="leader-name">Mr. OCHIENG' SYLVESTER</h5>
-            <p class="leader-title">DEPUTY ADMIN</p>
-          </div>
-		  </td>
-		  </tr><td>
+
         <div class="col-md-4 col-lg-3">
           <div class="leader-card">
-            <img src="images/IMG_4694.JPG" alt="Deputy" class="leader-img">
-            <h5 class="leader-name">MrNAKITARE DANIEL</h5>
+            <img src="images/IMG_0881.jpg" alt="Deputy Admin" class="leader-img">
+            <h5 class="leader-name">Mr. OCHIENG' SYLVESTER</h5>
+            <p class="leader-title">Deputy Admin</p>
+          </div>
+        </div>
+
+        <div class="col-md-4 col-lg-3">
+          <div class="leader-card">
+            <img src="images/IMG_4694.JPG" alt="Deputy Principal Academics" class="leader-img">
+            <h5 class="leader-name">Mr. NAKITARE DANIEL</h5>
             <p class="leader-title">Deputy Principal (Academics)</p>
           </div>
-        </div> 
-		</td>	
-			<tr><td>
-		  <div class="col-md-4 col-lg-3">
+        </div>
+
+        <div class="col-md-4 col-lg-3">
           <div class="leader-card">
-            <img src="images/IMG_3008.JPG" alt="Dean" class="leader-img">
-            <h5 class="leader-name">MR, MURUNGA JAMES</h5>
-            <p class="leader-title">SENIOR MASTER</p>
+            <img src="images/IMG_3008.JPG" alt="Senior Master" class="leader-img">
+            <h5 class="leader-name">Mr. MURUNGA JAMES</h5>
+            <p class="leader-title">Senior Master</p>
           </div>
         </div>
+
       </div>
     </div>
-	</tr><td>
-	</table>
   </section>
 
   <!-- Stats -->
   <section class="stats">
     <div class="container">
       <div class="row g-4 text-center">
+
         <div class="col-6 col-md-3">
-          <div class="stat-item">
-            <span class="stat-number">45</span>
-            <span class="stat-label">Years</span>
-          </div>
+          <span class="stat-number">45</span>
+          <span class="stat-label">Years</span>
         </div>
+
         <div class="col-6 col-md-3">
-          <div class="stat-item">
-            <span class="stat-number">1,200</span>
-            <span class="stat-label">Students</span>
-          </div>
+          <span class="stat-number">1,200</span>
+          <span class="stat-label">Students</span>
         </div>
+
         <div class="col-6 col-md-3">
-          <div class="stat-item">
-            <span class="stat-number">92%</span>
-            <span class="stat-label">University</span>
-          </div>
+          <span class="stat-number">92%</span>
+          <span class="stat-label">University</span>
         </div>
+
         <div class="col-6 col-md-3">
-          <div class="stat-item">
-            <span class="stat-number">150+</span>
-            <span class="stat-label">Awards</span>
-          </div>
+          <span class="stat-number">150+</span>
+          <span class="stat-label">Awards</span>
         </div>
+
       </div>
     </div>
   </section>
@@ -370,9 +367,11 @@
   <footer>
     <div class="container">
       <div class="row">
+
         <div class="col-lg-4 mb-4">
           <h5>St. Luke's Boys High School</h5>
           <p>P.O. Box 124 - 50204<br>Kimilili, Kenya<br>+254 700 123 456<br>info@stlukeskimilili.ac.ke</p>
+
           <div class="social-links mt-3">
             <a href="#"><i class="bi bi-facebook"></i></a>
             <a href="#"><i class="bi bi-twitter"></i></a>
@@ -380,6 +379,7 @@
             <a href="#"><i class="bi bi-youtube"></i></a>
           </div>
         </div>
+
         <div class="col-lg-2 col-md-6 mb-4">
           <h6>Quick Links</h6>
           <ul class="list-unstyled">
@@ -389,6 +389,7 @@
             <li><a href="#">Alumni</a></li>
           </ul>
         </div>
+
         <div class="col-lg-2 col-md-6 mb-4">
           <h6>Resources</h6>
           <ul class="list-unstyled">
@@ -398,6 +399,7 @@
             <li><a href="#">Newsletter</a></li>
           </ul>
         </div>
+
         <div class="col-lg-4 mb-4">
           <h6>Subscribe</h6>
           <form>
@@ -407,7 +409,9 @@
             </div>
           </form>
         </div>
+
       </div>
+
       <hr class="bg-light">
       <div class="text-center">
         <p class="mb-0">&copy; 2025 St. Luke's Boys High School. All rights reserved.</p>
@@ -415,15 +419,16 @@
     </div>
   </footer>
 
-  <!-- Scripts -->
+  <!-- Bootstrap JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
   <script>
     // Navbar scroll
     window.addEventListener('scroll', () => {
       document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
     });
 
-    // Active link
+    // Active link handler
     document.querySelectorAll('.nav-link').forEach(link => {
       link.addEventListener('click', () => {
         document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
@@ -431,5 +436,6 @@
       });
     });
   </script>
+
 </body>
 </html>
